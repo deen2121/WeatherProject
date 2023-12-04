@@ -1,13 +1,12 @@
 
 package KafkaFunctionality
 
-import org.apache.spark.sql.{SparkSession, DataFrame}
+import okhttp3.{OkHttpClient, Request}
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types._
+import org.apache.spark.sql.{DataFrame, SparkSession}
 
-import okhttp3.{OkHttpClient, Request}
-import java.time.LocalDateTime
-import java.time.ZoneId
+import java.time.{LocalDateTime, ZoneId}
 import java.time.format.DateTimeFormatter
 
 object SendDataToKafka {
