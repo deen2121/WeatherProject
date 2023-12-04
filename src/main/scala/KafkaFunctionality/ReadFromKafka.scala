@@ -21,7 +21,7 @@ object ReadFromKafka {
       "enable.auto.commit" -> (false: java.lang.Boolean)
     )
 
-    val topic = "weather_forecast_kafka"
+    val topic = "weather_forecast_kafka_deen"
 
     val schema = StructType(Seq(
       StructField("wind_mph", DoubleType, nullable = true),
@@ -65,7 +65,7 @@ object ReadFromKafka {
               val windSpeed = windSpeedRow.get(0).getAs[Double]("wind_mph")
 
               if (windSpeed > 8.0) {
-                sendEmailAlert("levinajariwala@gmail.com", "High Wind Alert", "High wind speed detected!")
+                sendEmailAlert("islamudeenzazai21@gmail.com", "High Wind Alert", "High wind speed detected!")
                 println("High wind speed detected!")
               }
             }
@@ -105,13 +105,13 @@ object ReadFromKafka {
 
     val session = Session.getInstance(properties, new javax.mail.Authenticator() {
       override protected def getPasswordAuthentication(): PasswordAuthentication = {
-        new PasswordAuthentication("15mscit026@gmail.com", "zvqm ctzt izma xkaa")
+        new PasswordAuthentication("islamudeenzazai7@gmail.com", "otkf hibv jtrp bkuc")
       }
     })
 
     try {
       val message = new MimeMessage(session)
-      message.setFrom(new InternetAddress("15mscit026@gmail.com"))
+      message.setFrom(new InternetAddress("islamudeenzazai7@gmail.com"))
       message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient))
       message.setSubject(subject)
       message.setText(body)
